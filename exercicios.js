@@ -25,3 +25,19 @@ const valoresImpares = valores.filter(calculoDeValoresImpares)
 const filtrarValoresImpares = valores.filter(calculoDeValoresImpares).reduce(operadorDeSoma);
 
 console.log('Os valores impares do array', valores, 'são:', valoresImpares, 'e a soma é:', filtrarValoresImpares);
+
+// 4) Dado um vetor de valores, retorne um objeto com quantas vezes cada valor está presente no vetor (dia: utilize reduce)
+
+const conjuntoDeValores = [ 1, 5, 1, 10, 3, 1, 4];
+
+const quantidadeDeRepeticao = conjuntoDeValores.reduce((objeto, item) => {
+    if(!objeto[item]) {
+        objeto[item] = 1;
+    } else {
+        objeto[item]++;
+    }
+    return objeto;
+}, {})
+
+
+console.log(quantidadeDeRepeticao)
