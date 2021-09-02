@@ -37,7 +37,19 @@ const quantidadeDeRepeticao = conjuntoDeValores.reduce((objeto, item) => {
         objeto[item]++;
     }
     return objeto;
-}, {})
+}, {});
 
+console.log(quantidadeDeRepeticao);
 
-console.log(quantidadeDeRepeticao)
+// 5) Dado um vetor de valores, retorne um vetor com somente os valores únicos do vetor (aqueles que ocorrem apenas 1 vez dentro do vetor) 
+//(Dica: utilize reduce, filter e keys) (dica: escreva console.log(objeto.keys()) e veja como ele poderá te ajudar neste exercicio
+
+let valoresUnicos1 = conjuntoDeValores.reduce((objeto,item) => (objeto[item] = '', objeto), {})
+console.log('Primeira forma', valoresUnicos1)
+
+let valoresUnicos2 = (value, index, self) => {
+    return self.indexOf(value) === index;
+}
+
+valoresUnicos2 = conjuntoDeValores.filter(valoresUnicos2);
+console.log(`Segunda forma: ${valoresUnicos2}`);
