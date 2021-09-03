@@ -53,3 +53,13 @@ let valoresUnicos2 = (value, index, self) => {
 
 valoresUnicos2 = conjuntoDeValores.filter(valoresUnicos2);
 console.log(`Segunda forma: ${valoresUnicos2}`);
+
+// 6) Dado um vetor com números, retorne somente os números pares;
+
+const filtrarPares = valores.filter(calculoDeValoresPares);
+console.log(filtrarPares);
+
+// 7) Dado um vetor com números, retorne somente os números ímpares;
+
+const filtrarImpares = valores.filter(calculoDeValoresImpares);
+console.log(filtrarImpares)
