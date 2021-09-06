@@ -2,11 +2,17 @@
 
 const valores = [ 1,2,3,4,5];
 
-const operadorDeSoma = (acumulado, atual) => acumulado + atual;
+const operadorDeSoma = (valorAnterior, valorAtual) => valorAnterior + valorAtual;
 
 const somaDosvalores = valores.reduce(operadorDeSoma);
 
-console.log('O somatório dos valores', valores, 'é:', somaDosvalores);
+//OU
+let sum = 0;
+for(let i = 0; i <valores.length; i++) {
+    sum = sum + valores[i];
+}
+
+console.log('O somatório dos valores', valores, 'é:', somaDosvalores, sum);
 
 //2) Dado um vetor de números, como poderia ser realizada a soma de todos os valores pares utilizando reduce e filter
 
@@ -30,6 +36,7 @@ console.log('Os valores impares do array', valores, 'são:', valoresImpares, 'e 
 
 const conjuntoDeValores = [ 1, 5, 1, 10, 3, 1, 4];
 
+//Compor um objeto
 const quantidadeDeRepeticao = conjuntoDeValores.reduce((objeto, item) => {
     if(!objeto[item]) {
         objeto[item] = 1;
@@ -63,3 +70,61 @@ console.log(filtrarPares);
 
 const filtrarImpares = valores.filter(calculoDeValoresImpares);
 console.log(filtrarImpares)
+
+// 8) Uma função é chamada da seguinte forma:
+// calculadora(10, '+', 20)
+//crie o corpo da função de forma que ela realize as 4 operações aritméticas
+
+const soma = (x, y) => x + y;
+const subtracao = (x, y) => x - y;
+const multriplicacao = (x, y) => x * y;
+const divisao = (x, y) => x / y;
+
+const calcular= (soma) => {
+    return soma;
+}
+
+console.log(soma(10,2))
+console.log(subtracao(2,2))
+console.log(multriplicacao(2,2))
+console.log(divisao(2,2))
+
+const calculadoraa = (num1, op, num2) => {
+    const ops = {
+        '+': (num1, num2) => num1 + num2,
+        '-': (num1, num2) => num1 - num2,
+        '*': (num1, num2) => num1 * num2,
+        '/': (num1, num2) => num1 / num2
+    }
+    if(ops[op]){
+        return ops[op](num1, num2)
+
+    }
+    return `Favor colocar a operação correta`
+
+    //OU
+    // if(op === '+') {
+    //     return num1 + num2;
+    // } 
+    // if(op === '-') {
+    //     return num1 - num2;
+    // }
+    // if(op === '*') {
+    //     return num1 * num2;
+    // }
+    // if(op === '/') {
+    //     return num1 / num2;
+    // }
+}
+
+console.log(calculadoraa(10,'+', 10))
+
+// 9) Modifique a calculadora do exerício anterior para que ela receba 2 números e uma função, e realize o cálculo. Exemplo: const soma = (num1, num2) => num1+num2 const calculadoraFn = () => calculadoraFn(10, soma, 20)
+
+const calculadoraFn = (num1, op, num2) => {
+    return op(num1, num2)
+
+}
+
+const some = (num1, num2) => num1 + num2
+console.log(calculadoraFn(10,soma, 20))
